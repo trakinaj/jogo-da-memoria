@@ -1,3 +1,3 @@
 
-jogo da memoria em react
+jogo da memória em react
 
