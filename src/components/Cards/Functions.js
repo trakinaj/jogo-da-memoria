@@ -102,6 +102,9 @@ export default {
 
         }
 
+        var data = { Cards: Cards_copy, score: score }
+        return data;
+
     },
 
     //função para tocar os sons da jogadas

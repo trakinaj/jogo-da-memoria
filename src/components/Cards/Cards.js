@@ -40,19 +40,22 @@ class Cards extends React.Component {
   //função para lidar com click nos Botões  
   handleOnClick(item) {
 
-    var Cards_copy = Functions.flippImage(this.state.Cards, this.state.qtdFlipped, this.state.Cards.indexOf(item))
+    if (item.isFlipped !== "done") {
 
-    this.setState({ Cards: Cards_copy.Cards });
-    this.setState({ qtdFlipped: Cards_copy.qtdFlipped });
+      var Cards_copy = Functions.flippImage(this.state.Cards, this.state.qtdFlipped, this.state.Cards.indexOf(item))
 
-    if (this.state.qtdFlipped === 1) {
-      Cards_copy = Functions.handleFlipped(this.state.Cards, this.state.qtdFlipped, this.state.score)
-      this.setState({ Cards: Cards_copy.Cards })
-      this.setState({ score: Cards_copy.score })
-      this.setState({ qtdFlipped: 0 })
-      let attempts = this.state.attempts + 1
-      this.setState({ attempts: attempts })
-      this.handlePropsFunction()
+      this.setState({ Cards: Cards_copy.Cards });
+      this.setState({ qtdFlipped: Cards_copy.qtdFlipped });
+
+      if (this.state.qtdFlipped === 1) {
+        Cards_copy = Functions.handleFlipped(this.state.Cards, this.state.qtdFlipped, this.state.score)
+        this.setState({ Cards: Cards_copy.Cards })
+        this.setState({ score: Cards_copy.score })
+        this.setState({ qtdFlipped: 0 })
+        let attempts = this.state.attempts + 1
+        this.setState({ attempts: attempts })
+        this.handlePropsFunction()
+      }
     }
 
   }
@@ -69,6 +72,7 @@ class Cards extends React.Component {
     }
   }
 
+  //função que recebe as função recebidas como props através do Home.js 
   handlePropsFunction() {
     this.props.setAttemptsFunction(this.state.attempts)
   }
