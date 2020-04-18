@@ -24,13 +24,16 @@ class Home extends React.Component {
 
   //função que lida com o fim do jogo
   handleEndGame = (score, maxScore) => {
-    if (score < maxScore) {
-      alert("Você não conseguiu terminar no tempo determinado :( Tente novamente.")
-      this.AddPlayer()
-    }
-    else {
-      alert("Parabéns !! Você conseguiu terminar. Tente novamente para melhorar sua posição no Ranking")
-      this.AddPlayer()
+    if (!this.state.popUpLogin) {
+
+      if (score < maxScore) {
+        alert("Você não conseguiu terminar no tempo determinado :( Tente novamente.")
+        this.AddPlayer()
+      }
+      else if (score >= maxScore) {
+        alert("Parabéns !! Você conseguiu terminar. Tente novamente para melhorar sua posição no Ranking")
+        this.AddPlayer()
+      }
     }
 
   }
