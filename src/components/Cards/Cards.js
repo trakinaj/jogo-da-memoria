@@ -8,18 +8,7 @@ class Cards extends React.Component {
   state = {
     //id é usado como key no .map
     Cards: [
-      { img: "", isFlipped: false, id: 0 }, //isFlipped == done, representam cartas com pares já formados
-      { img: "", isFlipped: false, id: 1 },
-      { img: "", isFlipped: false, id: 2 },
-      { img: "", isFlipped: false, id: 3 },
-      { img: "", isFlipped: false, id: 4 },
-      { img: "", isFlipped: false, id: 5 },
-      { img: "", isFlipped: false, id: 6 },
-      { img: "", isFlipped: false, id: 7 },
-      { img: "", isFlipped: false, id: 8 },
-      { img: "", isFlipped: false, id: 9 },
-      { img: "", isFlipped: false, id: 10 },
-      { img: "", isFlipped: false, id: 11 },
+
     ],
     callInitImage: true,
     qtdFlipped: 0,  //quantidade de cartas "flippadas" (máx 2)
@@ -31,7 +20,7 @@ class Cards extends React.Component {
   componentDidMount() {
 
     if (this.state.callInitImage === true) {
-      var Cards_copy = Functions.initImages(this.state.Cards);
+      var Cards_copy = Functions.initCards(this.state.Cards);
       this.setState({ Cards: Cards_copy })
       this.setState({ callInitImage: false })
     }
@@ -107,8 +96,7 @@ class Cards extends React.Component {
 
     //mensagem de fim de jogo
     if (this.state.score >= (this.state.Cards.length / 2) && this.state.qtdFlipped >= Cards.length) {
-
-      alert("Parabéns, você terminou o jogo. Aperte F5 para jogar novamente")
+      this.props.handleEndGameFunction(this.state.score, Cards.length / 2)
     }
 
     return (

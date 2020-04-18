@@ -1,27 +1,42 @@
 import React from "react";
 import "./Ranking.css";
+import api from '../../services/api'
 
 class Ranking extends React.Component {
   state = {
-    Data: [
-      { Name: "xxx", Time: 0 },
-      { Name: "xxx", Time: 0 },
-      { Name: "xxx", Time: 0 },
-      { Name: "xxx", Time: 0 },
-      { Name: "xxx", Time: 0 },
-      { Name: "xxx", Time: 0 },
-      { Name: "xxx", Time: 0 },
-      { Name: "xxx", Time: 0 },
-      { Name: "xxx", Time: 0 },
-      { Name: "xxx", Time: 0 },
-    ],
+    Data: []
   };
 
+  componentDidMount() {
+    this.getBestPlayers()
+  }
+
+  async getBestPlayers() {
+    let response = await api.get('Players')
+    var BestPlayers = response.data;
+
+    //coloca o vetor em ordem de menor quantidade de tentativas 
+    BestPlayers.sort((a, b) => {
+      return a.attempts < b.attempts ? -1 : a.attempts > b.attempts ? 1 : 0
+
+    })
+
+    if (BestPlayers.length < 10) {
+      for (let i = BestPlayers.length; i < 10; i++) {
+        BestPlayers = BestPlayers.concat({})
+        BestPlayers[i].name = 'none' + i
+        BestPlayers[i].attempts = 'none' + i
+      }
+    }
+    console.log(BestPlayers)
+    this.setState({ Data: BestPlayers })
+  }
+
   render() {
-    const UsersData = this.state.Data.map((item) => (
-      <div id="PlayerData" key={item.Name}>
-        <text> NAME: {item.Name}</text>
-        <text> TIME: {item.Time}</text>
+    const PlayersData = this.state.Data.map((item) => (
+      <div id="PlayerData" key={item.name}>
+        <text> NAME: {item.name}</text>
+        <text> ATTEMPTS: {item.attempts}</text>
       </div>
     ));
 
@@ -29,7 +44,7 @@ class Ranking extends React.Component {
       <div id="ranking">
         <header id="text">RANKING</header>
         {/*  TOP DE MELHORES JOGADORES */}
-        {UsersData}
+        {PlayersData}
       </div>
     );
   }

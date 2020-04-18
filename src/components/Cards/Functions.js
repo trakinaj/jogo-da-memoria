@@ -19,20 +19,28 @@ export default {
     },
 
     //função que inicia as imagens das cartas
-    initImages(Cards) {
+    initCards(Cards) {
         var Cards_copy = Cards;
-        Cards_copy = this.randCard(Cards, require("../../images/a.png"));
-        Cards_copy = this.randCard(Cards, require("../../images/a.png"));
-        Cards_copy = this.randCard(Cards, require("../../images/imo.jpeg"));
-        Cards_copy = this.randCard(Cards, require("../../images/imo.jpeg"));
-        Cards_copy = this.randCard(Cards, require("../../images/dahlia_tank.jpeg"));
-        Cards_copy = this.randCard(Cards, require("../../images/dahlia_tank.jpeg"));
-        Cards_copy = this.randCard(Cards, require("../../images/michael.jpg"));
-        Cards_copy = this.randCard(Cards, require("../../images/michael.jpg"));
-        Cards_copy = this.randCard(Cards, require("../../images/travis-scott.jpeg"));
-        Cards_copy = this.randCard(Cards, require("../../images/travis-scott.jpeg"));
-        Cards_copy = this.randCard(Cards, require("../../images/velho.jpeg"));
-        Cards_copy = this.randCard(Cards, require("../../images/velho.jpeg"));
+
+        for (let i = 0; i < 12; i++) {
+            Cards_copy = Cards_copy.concat({})
+            Cards_copy[i].isFlipped = false;
+            Cards_copy[i].id = i;
+            Cards_copy[i].img = '';
+        }
+        Cards_copy = this.randCard(Cards_copy, require("../../images/a.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/a.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/imo.jpeg"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/imo.jpeg"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/dahlia_tank.jpeg"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/dahlia_tank.jpeg"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/michael.jpg"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/michael.jpg"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/travis-scott.jpeg"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/travis-scott.jpeg"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/velho.jpeg"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/velho.jpeg"));
+
 
         return Cards_copy;
     },
@@ -111,6 +119,16 @@ export default {
     soundPlay(som) {
         var sound = new Howl({ src: [som], volume: 0.1, })
         sound.play()
+
+    },
+
+    //função que busca e trata a lista de jogadores do banco de dados
+    getPlayers() {
+
+    },
+
+    //função que adiciona um jogador no banco de dados
+    postPlayer() {
 
     }
 }
