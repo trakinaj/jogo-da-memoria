@@ -7,9 +7,7 @@ class Cards extends React.Component {
 
   state = {
     //id é usado como key no .map
-    Cards: [
-
-    ],
+    Cards: [],
     callInitImage: true,
     qtdFlipped: 0,  //quantidade de cartas "flippadas" (máx 2)
     score: 0, //máx = metade da qtd de cartas
@@ -35,8 +33,8 @@ class Cards extends React.Component {
 
       this.setState({ Cards: Cards_copy.Cards });
       this.setState({ qtdFlipped: Cards_copy.qtdFlipped });
-
       if (this.state.qtdFlipped === 1) {
+
         Cards_copy = Functions.handleFlipped(this.state.Cards, this.state.qtdFlipped, this.state.score)
         this.setState({ Cards: Cards_copy.Cards })
         this.setState({ score: Cards_copy.score })
@@ -46,14 +44,13 @@ class Cards extends React.Component {
         this.handlePropsFunction()
       }
     }
-
   }
 
-  //função que lida em qual imagem renderizar (em preto ou a verdadeira) dependendo do estado
+  //função que lida em qual imagem renderizar (em verso ou a verdadeira) dependendo do estado
   handleImageRender(item) {
     if (item.isFlipped === false) {
       return (
-        <img src={require("../../images/carta-preto.jpg")} id="image" alt="icon"></img>
+        <img src={require("../../images/carta-verso.png")} id="image" alt="icon"></img>
       );
     }
     else {

@@ -13,10 +13,10 @@ class Login extends React.Component {
         return (
             <div id="div">
                 <form id="form" onSubmit={(e) => this.props.handlePopUpFunction(e)}>
-                    Informe seu nome:
+                    <header id="header"> Nome:</header>
                     <div>
                         <input type="input" id="input" onChange={(e) => this.handlePropsFunctions(e)} ></input>
-                        <input type="submit" value="submit" id="submit"></input>
+                        <input type="submit" value="OK" id="submit"></input>
 
                     </div>
                 </form>

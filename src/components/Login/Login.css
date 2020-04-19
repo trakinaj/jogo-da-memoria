@@ -15,9 +15,9 @@
 #form{
     display: flex;
     flex-direction: column;
-    height: 50%;  
-    width: 80%;
-    background-color: white;
+    height: 40%;  
+    width: 65%;
+    background-color: #0080C1;
     border-radius: 15px;
     font-size: 40px;
     justify-content: center;
@@ -26,28 +26,35 @@
 
 #submit{
     border-style: none;
-    background-color: #E0E4E6;
+    background-color: rgb(253, 253, 253);
     border-color: #3B3D3E;
     width: 10%;
-    height: 30% ;
+    height: 70% ;
     margin-left: 20px;
-    border-radius: 10px;
     border-width: 1px;
+    color: #0080C1;
+    font-weight: bold;
+    font-size: 15px;
 
 }
 
 #input{
     border-style: none;
-    background-color: #E0E4E6;
-    color: #3B3D3E;
+    background-color: rgb(253, 253, 253);
+    color: #0080C1;
     border-color: #3B3D3E;
     width: 50%;
-    height: 30% ;
-    border-width: 1px;
-    border-radius: 10px;
+    height: 70% ;
     margin-left: 10px;
-    margin-top: 100px;
     font-weight: bold;
     font-size: 20px;
+    padding-left: 30px;
+}
+
+#header{
+    color:  rgb(253, 253, 253);
+    align-self: start;
+    margin-left: 140px;
+    font-size: 30px;
 }
 

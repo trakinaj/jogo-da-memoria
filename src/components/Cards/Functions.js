@@ -112,7 +112,6 @@ export default {
 
         var data = { Cards: Cards_copy, score: score }
         return data;
-
     },
 
     //função para tocar os sons da jogadas
@@ -122,15 +121,6 @@ export default {
 
     },
 
-    //função que busca e trata a lista de jogadores do banco de dados
-    getPlayers() {
-
-    },
-
-    //função que adiciona um jogador no banco de dados
-    postPlayer() {
-
-    }
 }
 
 
