@@ -1,1 +1,1 @@
-Um jogo da memória desenvolvido em React Native
+Um jogo da memória desenvolvido em ReactJs
