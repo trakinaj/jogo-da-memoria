@@ -86,9 +86,9 @@ class Cards extends React.Component {
     //roda a música de fundo
     if (this.state.backGroundSong === "off") {
 
-      var sound = new Howl({ src: require('../../sounds/Jou beats-brazil.mp3'), volume: 0.3, loop: true })
-      sound.play()
-      this.setState({ backGroundSong: "on" })
+      // var sound = new Howl({ src: require('../../sounds/Jou beats-brazil.mp3'), volume: 0.3, loop: true })
+      // sound.play()
+      // this.setState({ backGroundSong: "on" })
     }
 
     //mensagem de fim de jogo

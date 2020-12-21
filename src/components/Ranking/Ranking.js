@@ -36,7 +36,7 @@ class Ranking extends React.Component {
     const PlayersData = this.state.Data.map((item) => (
       <div id="PlayerData" key={item.name}>
         <text> NAME: {item.name}</text>
-        <text> ATTEMPTS: {item.attempts}</text>
+        <text style={{ paddingLeft: 10 }}> ATTEMPTS: {item.attempts}</text>
       </div>
     ));
 

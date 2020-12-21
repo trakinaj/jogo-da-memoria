@@ -32,13 +32,13 @@
 
 #PlayerData {
   display: flex;
-  flex-direction: column;
   text-align: start;
   margin-left: 20px;
   margin-top: 10px;
   border-width: thick;
   border-color: black;
-  font-size: 15px;
+  font-size: 12px;
+  color: #0080C1;
 }
 
 #text {
