@@ -1,3 +1,1 @@
-
-jogo da memória em react
-
+Um jogo da memória desenvolvido em ReactJs
