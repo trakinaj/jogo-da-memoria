@@ -35,7 +35,13 @@
     color: #0080C1;
     font-weight: bold;
     font-size: 15px;
+    outline:none
 
+}
+#submit:hover{
+    transform: scale(1.1, 1.1);
+
+    cursor: pointer;
 }
 
 #input{
@@ -49,6 +55,7 @@
     font-weight: bold;
     font-size: 20px;
     padding-left: 30px;
+    outline:none
 }
 
 #header{

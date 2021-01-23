@@ -6,13 +6,13 @@ import Functions from "./Functions"
 class Cards extends React.Component {
 
   state = {
-    //id é usado como key no .map
     Cards: [],
     callInitImage: true,
     qtdFlipped: 0,  //quantidade de cartas "flippadas" (máx 2)
     score: 0, //máx = metade da qtd de cartas
     backGroundSong: "off",
     attempts: 1,
+    isProcessing: false
   };
 
   componentDidMount() {
@@ -27,22 +27,33 @@ class Cards extends React.Component {
   //função para lidar com click nos Botões  
   handleOnClick(item) {
 
-    if (item.isFlipped !== "done") {
+    if (this.state.isProcessing == false) {
 
-      var Cards_copy = Functions.flippImage(this.state.Cards, this.state.qtdFlipped, this.state.Cards.indexOf(item))
+      setTimeout(() => {
 
-      this.setState({ Cards: Cards_copy.Cards });
-      this.setState({ qtdFlipped: Cards_copy.qtdFlipped });
-      if (this.state.qtdFlipped === 1) {
+        if (item.isFlipped !== "done") {
+          this.setState({ isProcessing: true })
 
-        Cards_copy = Functions.handleFlipped(this.state.Cards, this.state.qtdFlipped, this.state.score)
-        this.setState({ Cards: Cards_copy.Cards })
-        this.setState({ score: Cards_copy.score })
-        this.setState({ qtdFlipped: 0 })
-        let attempts = this.state.attempts + 1
-        this.setState({ attempts: attempts })
-        this.handlePropsFunction()
-      }
+          var Cards_copy = Functions.flippImage(this.state.Cards, this.state.qtdFlipped, this.state.Cards.indexOf(item))
+
+          this.setState({ Cards: Cards_copy.Cards });
+          this.setState({ qtdFlipped: Cards_copy.qtdFlipped });
+
+          if (this.state.qtdFlipped === 2) {
+
+            Cards_copy = Functions.handleFlipped(this.state.Cards, this.state.qtdFlipped, this.state.score)
+            this.setState({ Cards: Cards_copy.Cards })
+            this.setState({ score: Cards_copy.score })
+            this.setState({ qtdFlipped: 0 })
+            let attempts = this.state.attempts + 1
+            this.setState({ attempts: attempts })
+            this.handlePropsFunction()
+          }
+
+        }
+
+        this.setState({ isProcessing: false })
+      }, 1000)
     }
   }
 

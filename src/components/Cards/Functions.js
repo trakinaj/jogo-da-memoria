@@ -1,4 +1,4 @@
-import { Howl, Howler } from 'howler'
+import { Howl } from 'howler'
 
 export default {
 
@@ -57,11 +57,10 @@ export default {
                 Cards_copy[index].isFlipped = true;
                 qtd = qtdFlipped + 1;
             }
-            data = { Cards: Cards_copy, qtdFlipped: qtd };
         }
-        else {
-            data = { Cards: Cards_copy, qtdFlipped: qtd };
-        }
+        data = { Cards: Cards_copy, qtdFlipped: qtd };
+
+
 
         return data;
     },
