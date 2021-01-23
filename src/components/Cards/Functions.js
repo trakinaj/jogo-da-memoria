@@ -22,6 +22,13 @@ export default {
     initCards(Cards) {
         var Cards_copy = Cards;
 
+        /* 
+            isFlipped pode ser:
+            - false
+            - true
+            - "done" (caso já exista um par com aquela carta)
+        */
+
         for (let i = 0; i < 12; i++) {
             Cards_copy = Cards_copy.concat({})
             Cards_copy[i].isFlipped = false;
@@ -49,7 +56,8 @@ export default {
     flippImage(Cards, qtdFlipped, index) {
         let qtd = qtdFlipped;
         var Cards_copy = Cards;
-        var data;
+        let data;
+
 
         if (qtdFlipped < 2) {
 
@@ -59,8 +67,6 @@ export default {
             }
         }
         data = { Cards: Cards_copy, qtdFlipped: qtd };
-
-
 
         return data;
     },
@@ -79,7 +85,7 @@ export default {
                     img1 = Cards_copy[i].img;
                     index_img1 = i;
                 }
-                else if (qtdFlipped < 2) {
+                else if (qtdFlipped === 2) {
                     img2 = Cards_copy[i].img;
                     index_img2 = i;
                 }
@@ -87,25 +93,23 @@ export default {
         }
 
         if (img2 != null) {
-
+            let Score;
             if (img1 === img2) {
-                let Score = score + 1;
+                Score = score + 1;
                 Cards_copy[index_img1].isFlipped = "done";
                 Cards_copy[index_img2].isFlipped = "done";
                 this.soundPlay(require("../../sounds/correto.mp3"))
 
-                var data = { Cards: Cards_copy, score: Score }
-                return data;
             }
             else {
-                let Score = score;
+                Score = score;
                 Cards_copy[index_img1].isFlipped = false;
                 Cards_copy[index_img2].isFlipped = false;
                 this.soundPlay(require("../../sounds/errado.mp3"))
-
-                var data = { Cards: Cards_copy, score: Score }
-                return data;
             }
+
+            var data = { Cards: Cards_copy, score: Score }
+            return data;
 
         }
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { Howl, Howler } from 'howler'
 import "./Cards.css";
 import Functions from "./Functions"
 
@@ -12,7 +11,7 @@ class Cards extends React.Component {
     score: 0, //máx = metade da qtd de cartas
     backGroundSong: "off",
     attempts: 1,
-    isProcessing: false
+    isProcessing: false //usado para impedir que mais de 2 cartas sejam flippadas
   };
 
   componentDidMount() {
@@ -27,33 +26,27 @@ class Cards extends React.Component {
   //função para lidar com click nos Botões  
   handleOnClick(item) {
 
-    if (this.state.isProcessing == false) {
 
-      setTimeout(() => {
+    if (item.isFlipped !== true && this.state.isProcessing === false) {
 
-        if (item.isFlipped !== "done") {
+      let Cards_copy = Functions.flippImage(this.state.Cards, this.state.qtdFlipped, this.state.Cards.indexOf(item))
+
+      this.setState({ Cards: Cards_copy.Cards, qtdFlipped: Cards_copy.qtdFlipped }, () => {
+
+        if (this.state.qtdFlipped === 2) {
           this.setState({ isProcessing: true })
-
-          var Cards_copy = Functions.flippImage(this.state.Cards, this.state.qtdFlipped, this.state.Cards.indexOf(item))
-
-          this.setState({ Cards: Cards_copy.Cards });
-          this.setState({ qtdFlipped: Cards_copy.qtdFlipped });
-
-          if (this.state.qtdFlipped === 2) {
+          setTimeout(() => {  //timeout que espera para verificar o "match" das cartas
 
             Cards_copy = Functions.handleFlipped(this.state.Cards, this.state.qtdFlipped, this.state.score)
-            this.setState({ Cards: Cards_copy.Cards })
-            this.setState({ score: Cards_copy.score })
-            this.setState({ qtdFlipped: 0 })
             let attempts = this.state.attempts + 1
-            this.setState({ attempts: attempts })
+            this.setState({ Cards: Cards_copy.Cards, score: Cards_copy.score, qtdFlipped: 0, attempts: attempts })
             this.handlePropsFunction()
-          }
-
+            this.setState({ isProcessing: false })
+          }, 300)
         }
 
-        this.setState({ isProcessing: false })
-      }, 1000)
+      });
+
     }
   }
 

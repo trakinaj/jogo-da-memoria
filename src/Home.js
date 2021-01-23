@@ -73,11 +73,11 @@ class Home extends React.Component {
           </div>
           <Cards setAttemptsFunction={this.setAttempts} handleEndGameFunction={this.handleEndGame}></Cards>
 
-          {this.state.popUpLogin ?
+          {/* {this.state.popUpLogin ?
             <Login setNameFunction={this.setName} handlePopUpFunction={this.handlePopUpLogin}>
             </Login>
             : null
-          }
+          } */}
 
         </div>
         <Ranking></Ranking>
