@@ -27,13 +27,15 @@ class Home extends React.Component {
     if (!this.state.popUpLogin) {
 
       if (score < maxScore) {
-        alert("Você não conseguiu terminar no tempo determinado :( Tente novamente.")
+        alert("Você não conseguiu terminar no tempo determinado :( Tente novamente recarregando a página.")
         this.AddPlayer()
       }
       else if (score >= maxScore) {
-        alert("Parabéns !! Você conseguiu terminar. Tente novamente para melhorar sua posição no Ranking")
+        alert("Parabéns !! Você conseguiu terminar. Recarregue a página e Tente novamente para tentar melhorar sua posição no Ranking.")
         this.AddPlayer()
       }
+      // window.location.reload();
+
     }
 
   }
@@ -41,7 +43,12 @@ class Home extends React.Component {
   //função que lida com o login dos players
   handlePopUpLogin = () => {
     if (this.state.popUpLogin && this.state.name) {
-      this.setState({ popUpLogin: false })
+      if (this.state.name.length > 15) {
+        alert("Vamos lá, você consegue um nome/nick menor que esse :)")
+      }
+      else {
+        this.setState({ popUpLogin: false })
+      }
     }
     if (!this.state.name) {
       alert("Sim, você é obrigado a inserir um nome :)")
@@ -73,11 +80,11 @@ class Home extends React.Component {
           </div>
           <Cards setAttemptsFunction={this.setAttempts} handleEndGameFunction={this.handleEndGame}></Cards>
 
-          {/* {this.state.popUpLogin ?
+          {this.state.popUpLogin ?
             <Login setNameFunction={this.setName} handlePopUpFunction={this.handlePopUpLogin}>
             </Login>
             : null
-          } */}
+          }
 
         </div>
         <Ranking></Ranking>

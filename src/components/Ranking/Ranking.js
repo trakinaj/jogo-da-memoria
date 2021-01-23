@@ -35,15 +35,15 @@ class Ranking extends React.Component {
   render() {
     const PlayersData = this.state.Data.map((item) => (
       <div id="PlayerData" key={item.name}>
-        <text> NAME: {item.name}</text>
-        <text style={{ paddingLeft: 10 }}> ATTEMPTS: {item.attempts}</text>
+        <text style={{ fontSize: 15 }}> NAME: {item.name} </text>
+        <text style={{ paddingLeft: 10, fontSize: 15 }}> ATTEMPTS: {item.attempts}</text>
       </div>
     ));
 
     return (
       <div id="ranking">
         <header id="text">RANKING</header>
-        {/*  TOP DE MELHORES JOGADORES */}
+        {/*  TOP MELHORES JOGADORES */}
         {PlayersData}
       </div>
     );

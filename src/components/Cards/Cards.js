@@ -10,7 +10,7 @@ class Cards extends React.Component {
     qtdFlipped: 0,  //quantidade de cartas "flippadas" (máx 2)
     score: 0, //máx = metade da qtd de cartas
     backGroundSong: "off",
-    attempts: 1,
+    attempts: 0,
     isProcessing: false //usado para impedir que mais de 2 cartas sejam flippadas
   };
 
@@ -25,7 +25,6 @@ class Cards extends React.Component {
 
   //função para lidar com click nos Botões  
   handleOnClick(item) {
-
 
     if (item.isFlipped !== true && this.state.isProcessing === false) {
 
