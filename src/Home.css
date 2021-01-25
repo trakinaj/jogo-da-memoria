@@ -14,6 +14,7 @@
   #App {
     flex-direction: column;
     position: relative;
+    height: 100vh;
   }
   #jogo {
     margin-top: 30px;
@@ -24,6 +25,8 @@
   #App {
     flex-direction: column;
     position: relative;
+    height: 100%;
+
   }
   #jogo {
     margin-top: 30px;
