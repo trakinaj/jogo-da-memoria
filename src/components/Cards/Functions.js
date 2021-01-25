@@ -35,18 +35,18 @@ export default {
             Cards_copy[i].id = i;
             Cards_copy[i].img = '';
         }
-        Cards_copy = this.randCard(Cards_copy, require("../../images/a.png"));
-        Cards_copy = this.randCard(Cards_copy, require("../../images/a.png"));
-        Cards_copy = this.randCard(Cards_copy, require("../../images/imo.jpeg"));
-        Cards_copy = this.randCard(Cards_copy, require("../../images/imo.jpeg"));
-        Cards_copy = this.randCard(Cards_copy, require("../../images/dahlia_tank.jpeg"));
-        Cards_copy = this.randCard(Cards_copy, require("../../images/dahlia_tank.jpeg"));
-        Cards_copy = this.randCard(Cards_copy, require("../../images/michael.jpg"));
-        Cards_copy = this.randCard(Cards_copy, require("../../images/michael.jpg"));
-        Cards_copy = this.randCard(Cards_copy, require("../../images/travis-scott.jpeg"));
-        Cards_copy = this.randCard(Cards_copy, require("../../images/travis-scott.jpeg"));
-        Cards_copy = this.randCard(Cards_copy, require("../../images/velho.jpeg"));
-        Cards_copy = this.randCard(Cards_copy, require("../../images/velho.jpeg"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/circ.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/circ.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/quad.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/quad.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/tri.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/tri.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/polig5.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/polig5.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/losang.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/losang.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/ret.png"));
+        Cards_copy = this.randCard(Cards_copy, require("../../images/ret.png"));
 
 
         return Cards_copy;
